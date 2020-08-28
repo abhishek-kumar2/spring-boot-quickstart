@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ public class LessonController {
 	@Autowired
 	private LessonService lessonService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("topics/{topicId}/courses/{courseId}/lessons")
 	public List<Lesson> getAllLessons(@PathVariable String courseId) {
 		return lessonService.getAllLessons(courseId);
